@@ -40,11 +40,10 @@ function Submissions() {
                     <label htmlFor="artworkType">Type of Artwork</label>
                     <select id="artworkType" name="artworkType" required>
                       <option value="">Select Type</option>
-                      <option value="Oil Painting">Oil Painting</option>
-                      <option value="Watercolor">Watercolor</option>
-                      <option value="Acrylic">Acrylic</option>
-                      <option value="Digital Art">Digital Art</option>
+                      <option value="Oil Painting">Portrait</option>
                       <option value="Sketch">Sketch</option>
+                      <option value="Acrylic">Everything in Between</option>
+                      <option value="Digital Art">Scenic Painting</option>
                     </select>
                   </div>
   
@@ -62,8 +61,7 @@ function Submissions() {
                     <label htmlFor="writeupType">Type of Writeup</label>
                     <select id="writeupType" name="writeupType" required>
                       <option value="">Select Type</option>
-                      <option value="Essay">Essay</option>
-                      <option value="Poetry">Poetry</option>
+                      <option value="Essay">Feelings</option>
                       <option value="Short Story">Short Story</option>
                       <option value="Review">Review</option>
                       <option value="Article">Article</option>
@@ -96,7 +94,7 @@ function Submissions() {
       )}
     </div>
   </div>
-  
+    
 
   );
 }

@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 const artworkSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  description: { type: String, required: true },
-  imageUrl: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
+  type: String,
+  image: String,
+  title: String,
 });
 
 const Artwork = mongoose.model('Artwork', artworkSchema);

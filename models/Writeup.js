@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const writeupSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  content: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
+  type: String,
+  file: String, // This might be a URL or path to the uploaded file
+  coverImage: String, // This might be a URL or path to the cover image
+  title: String,
 });
 
 const Writeup = mongoose.model('Writeup', writeupSchema);
