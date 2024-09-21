@@ -272,15 +272,30 @@ main {
 .home-container {
   position: relative;
 }
-
 .overlap-image {
   position: absolute;
-  bottom: 67%;
+  bottom: 30%; /* Start from slightly lower */
   left: 20%;
   transform: translateX(-50%);
-  z-index: 10; /* Ensure the image appears above both banners */
-  width: 45%; /* Adjust the size as needed */
+  z-index: 10;
+  width: 45%;
+
+  /* Add the animation */
+  animation: float-in 3s ease-out forwards;
 }
+
+/* Define the keyframes for the floating animation */
+@keyframes float-in {
+  0% {
+    bottom: 50%; /* Starting position (lower) */
+    opacity: 0;  /* Start invisible */
+  }
+  100% {
+    bottom: 67%; /* End position (final resting position) */
+    opacity: 1;  /* Fully visible */
+  }
+}
+
 
 /* ImageBanner.css */
 
@@ -450,15 +465,20 @@ margin-top: 20px;
   z-index: 10; /* Ensure the image appears above both banners */
   width: 20%;
 }
-
-
 .overlap-two {
   position: absolute;
-  bottom: 36%;
+  bottom: 28%; /* Starting from lower position */
   right: -11%;
   transform: translateX(-50%);
-  z-index: 10; /* Ensure the image appears above both banners */
-  width: 25%; /* Adjust the size as needed */
+  z-index: 10;
+  width: 25%;
+  opacity: 0; /* Initially hidden */
+  transition: bottom 3s ease-out, opacity 0.8s ease-out; /* Smooth transition */
+}
+
+.overlap-two.visible {
+  bottom: 36%; /* Final resting position */
+  opacity: 1;  /* Fully visible */
 }
 
  

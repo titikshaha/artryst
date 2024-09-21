@@ -1,11 +1,24 @@
 import React from 'react';
-import '../css/index.css'
+import '../css/index2.css';
+import AboutBanner from '../components/AboutBanner';
+import PhotoBanner from '../components/PhotoBanner';
+import AboutBanner2 from '../components/AboutBanner2';
 
 function About() {
   return (
-    <div>
-      <h1>About Me</h1>
-      <p>This is where you can add information about yourself.</p>
+    <div className="about-me-gradient">
+      <div className="section one">
+        <AboutBanner />
+      </div>
+      
+      <div className="section">
+        <PhotoBanner />
+      </div>
+
+      <div className="section two">
+        <AboutBanner2 />
+      </div>
+
     </div>
   );
 }

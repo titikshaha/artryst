@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const artworkSchema = new mongoose.Schema({
   type: String,
@@ -8,4 +8,4 @@ const artworkSchema = new mongoose.Schema({
 
 const Artwork = mongoose.model('Artwork', artworkSchema);
 
-module.exports = Artwork;
+export default Artwork;

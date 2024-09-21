@@ -1,0 +1,125 @@
+
+* {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Gradient Background */
+  .about-me-gradient {
+    height: 100%;
+    background: linear-gradient(to bottom, #f8b2b1, #f4b67c, #CF635C);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    transition:  0.5s ease-in-out; /* Smooth background color transition */
+  }
+  
+  /* About Me Header Section */
+  .about-me-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out; /* Smooth header transition */
+  }
+  
+  .text-content {
+    flex: 1;
+    padding-right: 20px;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth fade-in and move */
+  }
+  
+  .text-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    transition: color 0.3s ease-in-out; /* Smooth text color transition */
+  }
+  
+  .text-content p {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+  
+  /* Image Section */
+  .image-content {
+    flex: 0.6;
+  }
+  
+  .image-content img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth image transition */
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .about-me-header {
+      flex-direction: column;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+  
+    .text-content {
+      padding-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .image-content {
+      width: 100%;
+    }
+  }
+  
+  /* Photo Banner Section */
+  .photo-banner {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    transition: background 0.3s ease-in-out; /* Smooth banner transition */
+  }
+  
+  .photo-grid {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  
+  /* Photo Items with Hover and Transition Effects */
+  .photo-item {
+    margin: 20px;
+    position: relative;
+    overflow: visible;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Smooth hover effects */
+    flex: 1;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #fff;
+  }
+  
+  .photo-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth image hover effects */
+  }
+  
+  .photo-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .photo-item:hover img {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    opacity: 0.9; /* Slight opacity change on hover */
+  }
+  
+  .banner-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 20px;
+  }
+  

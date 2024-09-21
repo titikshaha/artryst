@@ -14,88 +14,104 @@ function Submissions() {
     setSubmissionType(type);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    alert('Form submitted!');
+    
+    const formData = new FormData(e.target); // Create FormData from the form
+  
+    try {
+      const response = await fetch('/api/artworks', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (response.ok) {
+        alert('Form submitted successfully!');
+        e.target.reset(); // Reset form fields
+      } else {
+        const errorText = await response.text();
+        alert(`Submission failed: ${errorText}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Error submitting form.');
+    }
   };
-
+  
   return (
     <div className="container-login">
-    <div className="login-form">
-      {isAuthenticated ? (
-        submissionType ? (
-          <div>
-            <h2>Upload New {submissionType}</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="title">Title</label>
-                <input type="text" id="title" name="title" required />
-              </div>
-  
-              {/* Specific Fields for Artworks */}
-              {submissionType === 'Artwork' && (
-                <>
-                  <div className="form-group">
-                    <label htmlFor="artworkType">Type of Artwork</label>
-                    <select id="artworkType" name="artworkType" required>
-                      <option value="">Select Type</option>
-                      <option value="Oil Painting">Portrait</option>
-                      <option value="Sketch">Sketch</option>
-                      <option value="Acrylic">Everything in Between</option>
-                      <option value="Digital Art">Scenic Painting</option>
-                    </select>
-                  </div>
-  
-                  <div className="form-group">
-                    <label htmlFor="image">Upload Image</label>
-                    <input type="file" id="image" name="image" accept="image/*" required />
-                  </div>
-                </>
-              )}
-  
-              {/* Specific Fields for Writeups */}
-              {submissionType === 'Writeup' && (
-                <>
-                  <div className="form-group">
-                    <label htmlFor="writeupType">Type of Writeup</label>
-                    <select id="writeupType" name="writeupType" required>
-                      <option value="">Select Type</option>
-                      <option value="Essay">Feelings</option>
-                      <option value="Short Story">Short Story</option>
-                      <option value="Review">Review</option>
-                      <option value="Article">Article</option>
-                    </select>
-                  </div>
-  
-                  <div className="form-group">
-                    <label htmlFor="file">Upload File</label>
-                    <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.txt" required />
-                  </div>
-  
-                  <div className="form-group">
-                    <label htmlFor="coverImage">Upload Cover Image</label>
-                    <input type="file" id="coverImage" name="coverImage" accept="image/*" required />
-                  </div>
-                </>
-              )}
-  
-              <button className='sub-button' type="submit">Submit</button>
-            </form>
-          </div>
-        ) : (
-          <div>
-            <button className='sub-button' onClick={() => handleTypeSelect('Artwork')}>Artwork</button>
-            <button className='sub-button' onClick={() => handleTypeSelect('Writeup')}>Writeup</button>
-          </div>
-        )
-      ) : (
-        <Login onLogin={handleLogin} />
-      )}
-    </div>
-  </div>
+      <div className="login-form">
+        {isAuthenticated ? (
+          submissionType ? (
+            <div>
+              <h2>Upload New {submissionType}</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label htmlFor="title">Title</label>
+                  <input type="text" id="title" name="title" required />
+                </div>
     
-
+                {/* Specific Fields for Artworks */}
+                {submissionType === 'Artwork' && (
+                  <>
+                    <div className="form-group">
+                      <label htmlFor="artworkType">Type of Artwork</label>
+                      <select id="artworkType" name="artworkType" required>
+                        <option value="">Select Type</option>
+                        <option value="Oil Painting">Portrait</option>
+                        <option value="Sketch">Sketch</option>
+                        <option value="Acrylic">Everything in Between</option>
+                        <option value="Digital Art">Scenic Painting</option>
+                      </select>
+                    </div>
+    
+                    <div className="form-group">
+                      <label htmlFor="image">Upload Image</label>
+                      <input type="file" id="image" name="image" accept="image/*" required />
+                    </div>
+                  </>
+                )}
+    
+                {/* Specific Fields for Writeups */}
+                {submissionType === 'Writeup' && (
+                  <>
+                    <div className="form-group">
+                      <label htmlFor="writeupType">Type of Writeup</label>
+                      <select id="writeupType" name="writeupType" required>
+                        <option value="">Select Type</option>
+                        <option value="Essay">Feelings</option>
+                        <option value="Short Story">Short Story</option>
+                        <option value="Review">Review</option>
+                        <option value="Article">Article</option>
+                      </select>
+                    </div>
+    
+                    <div className="form-group">
+                      <label htmlFor="file">Upload File</label>
+                      <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.txt, image/*" required />
+                    </div>
+    
+                    <div className="form-group">
+                      <label htmlFor="coverImage">Upload Cover Image</label>
+                      <input type="file" id="coverImage" name="coverImage" accept="image/*" required />
+                    </div>
+                  </>
+                )}
+    
+                <button className='sub-button' type="submit">Submit</button>
+              </form>
+            </div>
+          ) : (
+            <div>
+              <button className='sub-button' onClick={() => handleTypeSelect('Artwork')}>Artwork</button>
+              <button className='sub-button' onClick={() => handleTypeSelect('Writeup')}>Writeup</button>
+            </div>
+          )
+        ) : (
+          <Login onLogin={handleLogin} />
+        )}
+      </div>
+    </div>
   );
 }
 

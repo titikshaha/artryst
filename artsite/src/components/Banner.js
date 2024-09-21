@@ -17,7 +17,7 @@ const Banner = () => {
     <div className="banner">
       <div className="banner-content">
         <h1>welcome to artryst</h1>
-        <p>find inspiration in everyday moments and the beauty of human experience, with the essence of what it means to be truly alive.
+        <p>find inspiration in everyday moments and the beauty of human experience,  with the essence of what it means to be truly alive.
         </p>
         <div className="banner-buttons">
           <button className="btn primary" onClick={navigateToArtworks}>Explore Artworks</button>

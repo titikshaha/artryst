@@ -10,7 +10,7 @@ const SplashScreen = React.forwardRef((props, ref) => {
         <h1>every stroke tells a story</h1>
       </div>
       <div class="logo-container">
-        <img src="images/T2.png"/>
+        <img src="images/T2.png" alt="logo"/>
       </div>
        
     </div> 

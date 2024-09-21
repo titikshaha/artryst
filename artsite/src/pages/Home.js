@@ -1,15 +1,14 @@
-import React from 'react';
-import '../css/index.css'
+import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Banner from '../components/Banner';
 import ArtBanner from '../components/ArtBanner';
 import TextBanner from '../components/TextBanner';
 import WriteBanner from '../components/WriteBanner';
-import { useNavigate } from 'react-router-dom';
 import BannerLast from '../components/BannerLast';
-
 
 function Home() {
   const navigate = useNavigate();
+  const overlapTwoRef = useRef(null);
 
   const navigateToArtworks = () => {
     navigate('/artworks');
@@ -18,26 +17,51 @@ function Home() {
   const navigateToWriteups = () => {
     navigate('/writeups');
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    if (overlapTwoRef.current) {
+      observer.observe(overlapTwoRef.current);
+    }
+
+    return () => {
+      if (overlapTwoRef.current) {
+        observer.unobserve(overlapTwoRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div>
       <div className="home-container">
-      <Banner />
-
-      <img src="\images\artwork1-removebg-preview.png" alt="Overlap " className="overlap-image" />
-      <button className="explore-button" onClick={navigateToArtworks}>Explore More →</button>
-    
-      <ArtBanner />
-      <TextBanner />
-      <img src="\images\overlayp.png" alt="Overlap 2" className="overlap-two" />
-      <button className="explore-two" onClick={navigateToWriteups}>Read More →</button>
-    
-      <WriteBanner />
-      <BannerLast />
-     
-      
-  </div>
-  </div>
-);
+        <Banner />
+        <img src="\images\artwork1-removebg-preview.png" alt="Overlap" className="overlap-image" />
+        <button className="explore-button" onClick={navigateToArtworks}>Explore More →</button>
+        
+        <ArtBanner />
+        <TextBanner />
+        
+        {/* Image with intersection observer */}
+        <img 
+          src="\images\overlayp.png" 
+          alt="Overlap 2" 
+          className="overlap-two" 
+          ref={overlapTwoRef} 
+        />
+        <button className="explore-two" onClick={navigateToWriteups}>Read More →</button>
+        
+        <WriteBanner />
+        <BannerLast />
+      </div>
+    </div>
+  );
 }
 
 export default Home;

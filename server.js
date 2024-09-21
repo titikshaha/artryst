@@ -1,9 +1,13 @@
-const express = require('express');
-const path = require('path');
-const mongoose = require('mongoose');
-const multer = require('multer'); // Add multer for file handling
+import express from 'express';
+import path from 'path';
+import mongoose from 'mongoose';
+import multer from 'multer';
+import { fileURLToPath } from 'url';
+import Artwork from './models/Artworks.js';
+import Writeup from './models/Writeup.js';
+
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -21,29 +25,9 @@ mongoose.connect('mongodb://localhost:27017/artryst', {
   console.error('Error connecting to MongoDB', err);
 });
 
-// Models
-const Artwork = require('./models/Artwork');
-const Writeup = require('./models/Writeup');
-
 // Routes
 app.get('/', (req, res) => {
   res.send('Welcome to Artryst!');
-});
-
-app.get('/artworks', (req, res) => {
-  res.send('Artworks page');
-});
-
-app.get('/writeups', (req, res) => {
-  res.send('Writeups page');
-});
-
-app.get('/about', (req, res) => {
-  res.send('About Me page');
-});
-
-app.get('/submissions', (req, res) => {
-  res.send('Submissions page');
 });
 
 // API routes
@@ -88,8 +72,12 @@ app.post('/api/artworks', upload.single('image'), async (req, res) => {
 app.post('/api/writeups', upload.fields([{ name: 'file' }, { name: 'coverImage' }]), async (req, res) => {
   try {
     const { type, title } = req.body;
-    const file = req.files['file'][0].path; // Path to the uploaded file
-    const coverImage = req.files['coverImage'][0].path; // Path to the cover image
+    const file = req.files['file'][0]?.path; // Path to the uploaded file
+    const coverImage = req.files['coverImage'][0]?.path; // Path to the cover image
+
+    if (!file || !coverImage) {
+      return res.status(400).send('File or cover image not uploaded');
+    }
 
     const writeup = new Writeup({
       type,
@@ -105,13 +93,15 @@ app.post('/api/writeups', upload.fields([{ name: 'file' }, { name: 'coverImage' 
   }
 });
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
 
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
+// Serve static files from the React app
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, 'artsite/build')));
+
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build/index.html'));
+  res.sendFile(path.join(__dirname, 'artsite/build/index.html'));
 });
 
 // Start server
