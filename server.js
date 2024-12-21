@@ -1,3 +1,6 @@
+// this was included when the website had working MongoDB server.
+//  However as a showcase project that part has been removed for now.
+
 import express from 'express';
 import path from 'path';
 import multer from 'multer';
