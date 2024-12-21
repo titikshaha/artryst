@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../css/index.css'
+import '../css/index2.css'
+import Portraits from '../components/artworks/Portraits';
+import Sketches from '../components/artworks/Sketches';
+import Everything from '../components/artworks/Everything';
+import Scenic from '../components/artworks/Scenic';
 
 function Artworks() {
   const [artworks, setArtworks] = useState([]);
@@ -13,22 +17,36 @@ function Artworks() {
       .catch(error => {
         console.error('There was an error fetching the artworks!', error);
       });
+      
+       
+          
+          window.scrollTo(0, 0);
+      
+       
   }, []);
 
   return (
-    <div>
-      <h1>Artworks</h1>
-      <ul>
-        {artworks.map(artwork => (
-          <li key={artwork._id}>
-            <h2>{artwork.title}</h2>
-            <p>{artwork.description}</p>
-            <img src={artwork.imageUrl} alt={artwork.title} width="200" />
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+    <div className="Arts">
+        <div className="section portrait">
+          <Portraits />
+        </div>
+        
+        <div className="section sketches">
+          <Sketches />
+        </div>
+
+        <div className = "section everything">
+          <Everything />
+        </div>
+  
+        <div className = "section scenic">
+          <Scenic />
+        </div>
+  
+      </div>
+    );
+  }
+  
+
 
 export default Artworks;

@@ -16,18 +16,19 @@ function Submissions() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(e.target); // Create FormData from the form
-  
+
     try {
-      const response = await fetch('/api/artworks', {
+      const response = await fetch('/api/submissions', {
         method: 'POST',
         body: formData,
       });
-  
+
       if (response.ok) {
-        alert('Form submitted successfully!');
-        e.target.reset(); // Reset form fields
+        alert('Submission successful!');
+        e.target.reset(); // Reset the form after submission
+        setSubmissionType(null); // Reset submission type
       } else {
         const errorText = await response.text();
         alert(`Submission failed: ${errorText}`);
@@ -37,7 +38,7 @@ function Submissions() {
       alert('Error submitting form.');
     }
   };
-  
+
   return (
     <div className="container-login">
       <div className="login-form">
@@ -50,7 +51,7 @@ function Submissions() {
                   <label htmlFor="title">Title</label>
                   <input type="text" id="title" name="title" required />
                 </div>
-    
+
                 {/* Specific Fields for Artworks */}
                 {submissionType === 'Artwork' && (
                   <>
@@ -58,20 +59,20 @@ function Submissions() {
                       <label htmlFor="artworkType">Type of Artwork</label>
                       <select id="artworkType" name="artworkType" required>
                         <option value="">Select Type</option>
-                        <option value="Oil Painting">Portrait</option>
+                        <option value="Portrait">Portrait</option>
                         <option value="Sketch">Sketch</option>
-                        <option value="Acrylic">Everything in Between</option>
-                        <option value="Digital Art">Scenic Painting</option>
+                        <option value="Everything in Between">Everything in Between</option>
+                        <option value="Scenic Painting">Scenic Painting</option>
                       </select>
                     </div>
-    
+
                     <div className="form-group">
                       <label htmlFor="image">Upload Image</label>
                       <input type="file" id="image" name="image" accept="image/*" required />
                     </div>
                   </>
                 )}
-    
+
                 {/* Specific Fields for Writeups */}
                 {submissionType === 'Writeup' && (
                   <>
@@ -79,25 +80,25 @@ function Submissions() {
                       <label htmlFor="writeupType">Type of Writeup</label>
                       <select id="writeupType" name="writeupType" required>
                         <option value="">Select Type</option>
-                        <option value="Essay">Feelings</option>
+                        <option value="Feelings">Feelings</option>
                         <option value="Short Story">Short Story</option>
                         <option value="Review">Review</option>
                         <option value="Article">Article</option>
                       </select>
                     </div>
-    
+
                     <div className="form-group">
                       <label htmlFor="file">Upload File</label>
-                      <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.txt, image/*" required />
+                      <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.txt" required />
                     </div>
-    
+
                     <div className="form-group">
                       <label htmlFor="coverImage">Upload Cover Image</label>
                       <input type="file" id="coverImage" name="coverImage" accept="image/*" required />
                     </div>
                   </>
                 )}
-    
+
                 <button className='sub-button' type="submit">Submit</button>
               </form>
             </div>

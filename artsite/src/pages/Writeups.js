@@ -1,33 +1,83 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import '../css/index.css'
+import React, { useState, useEffect } from "react";
+import WriteupCard from "../components/WriteupCard";
+import WriteupDetail from "../components/WriteupDetail";
+import '../css/index2.css';
 
-function Writeups() {
-  const [writeups, setWriteups] = useState([]);
+
+const Writeups = () => {
+  const [selectedWriteup, setSelectedWriteup] = useState(null);
+
+  const writeups = [
+    
+    {
+      id: 3,
+      title: "Washed Away",
+      coverArt: "/images/writeups/writeup3.jpg",
+      document: "/documents/washedaway.docx",
+    },
+    {
+      id: 4,
+      title: "Glitter on The Floor",
+      coverArt: "/images/writeups/writeup4.jpg",
+      document: "/documents/glitter.docx",
+    },
+    {
+      id: 5,
+      title: "Following Him",
+      coverArt: "/images/writeups/writeup5.jpg",
+      document: "/documents/followhim.docx",
+    },
+    {
+      id: 1,
+      title: "The Healing",
+      coverArt: "/images/writeups/writeup1.jpg",
+      document: "/documents/thehealing.docx",
+    },
+    {
+      id: 2,
+      title: "Boy with the Box",
+      coverArt: "/images/writeups/wrtieup2.jpg",
+      document: "/documents/boywithbox.docx",
+    },
+    {
+      id: 6,
+      title: "Love",
+      coverArt: "/images/writeups/writeup6.jpeg",
+      document: "/documents/Love.docx",
+    },
+  ];
+
+  const handleSelectWriteup = (writeup) => {
+    setSelectedWriteup(writeup);
+  };
+
+  const handleCloseDetail = () => {
+    setSelectedWriteup(null);
+  };
 
   useEffect(() => {
-    axios.get('/api/writeups')
-      .then(response => {
-        setWriteups(response.data);
-      })
-      .catch(error => {
-        console.error('There was an error fetching the writeups!', error);
-      });
+    
+    window.scrollTo(0, 0);
+
   }, []);
 
   return (
-    <div>
-      <h1>Writeups</h1>
-      <ul>
-        {writeups.map(writeup => (
-          <li key={writeup._id}>
-            <h2>{writeup.title}</h2>
-            <p>{writeup.content}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="writeups-page">
+      {selectedWriteup ? (
+        <WriteupDetail writeup={selectedWriteup} onClose={handleCloseDetail} />
+      ) : (
+        <div className="writeup-list">
+          {writeups.map((writeup) => (
+            <WriteupCard
+              key={writeup.id}
+              writeup={writeup}
+              onSelect={handleSelectWriteup}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Writeups;
