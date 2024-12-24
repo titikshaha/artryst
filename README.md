@@ -3,7 +3,7 @@
 
 artryst is a personal  website designed to showcase artworks and writeups. It features a dynamic interface with smooth navigation and interactive components for an immersive user experience. The project is built using React and leverages modern web development practices.
 
----
+--- 
 
 ## Features
 
@@ -62,7 +62,7 @@ artryst is a personal  website designed to showcase artworks and writeups. It fe
    ```bash
    npm start
    ```
-   - The application will be available at 
+   - The application will be available at https://artryst.netlify.app/
 
 4. **Build for Production**
    ```bash
@@ -84,7 +84,7 @@ src/
 
 ---
 
-## Key Files
+## Key Files 
 
 ### 1. **Header.jsx**
 Manages navigation with dynamic active links.
@@ -105,8 +105,8 @@ Wraps the application manages routing, and includes global components like the h
    ```
 
 2. **Deploy to a Hosting Service**
-   - **Vercel**:
-     - Run `vercel deploy` from the command line.
+   - **Netlify**:
+     - https://artryst.netlify.app/
 
 ---
 
