@@ -62,7 +62,7 @@ artryst is a personal  website designed to showcase artworks and writeups. It fe
    ```bash
    npm start
    ```
-   - The application will be available at 
+   - The application will be available at https://artryst.netlify.app/
 
 4. **Build for Production**
    ```bash
@@ -105,8 +105,8 @@ Wraps the application manages routing, and includes global components like the h
    ```
 
 2. **Deploy to a Hosting Service**
-   - **Vercel**:
-     - Run `vercel deploy` from the command line.
+   - **Netlify**:
+     - https://artryst.netlify.app/
 
 ---
 
