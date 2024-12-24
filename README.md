@@ -3,7 +3,7 @@
 
 artryst is a personal  website designed to showcase artworks and writeups. It features a dynamic interface with smooth navigation and interactive components for an immersive user experience. The project is built using React and leverages modern web development practices.
 
----
+--- 
 
 ## Features
 
