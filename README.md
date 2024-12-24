@@ -84,7 +84,7 @@ src/
 
 ---
 
-## Key Files
+## Key Files 
 
 ### 1. **Header.jsx**
 Manages navigation with dynamic active links.
