@@ -17,7 +17,6 @@
   font-weight: bold;
   font-style: normal;
 }
-
 #splash-screen {
   position: fixed;
   width: 100%;
@@ -30,11 +29,26 @@
   transition: opacity 1s ease;
 }
 
+@media (max-width: 768px) {
+  .splash-content {
+    font-size: 1.5rem;
+    flex-direction: column;
+  }
+
+  .logo-container img {
+    max-width: 300px;
+  }
+
+  .splash-content h1 {
+    font-size: 1.8rem;
+  }
+}
+
 .splash-content {
   display: flex;
   font-size: 2rem;
   color: #614984;
-  flex-direction:row;
+  flex-direction: row;
   align-items: center;
   text-align: center;
   margin: 0;
@@ -66,7 +80,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat; 
   background-position: center;
-  
 }
 
 main, footer {
@@ -74,7 +87,6 @@ main, footer {
 }
 
 header {
-
   background-color: #FAF4E5;
   color: #614984;
   padding: 0;
@@ -103,7 +115,6 @@ header {
 nav {
   flex-grow: 1;
   border: 2px solid #DE94A7;
-  
 }
 
 nav ul {
@@ -170,21 +181,20 @@ main {
 /* Banner.css */
 .banner {
   display: flex;
- justify-content: center;
+  justify-content: center;
   align-items: top;
   height: 300px;
   background-image: url(/public/images/bgartwork.png); 
   background-size: cover; /* Ensures the image covers the entire container */
   background-repeat: no-repeat; /* Prevents repeating the image */
   background-position: center; /* Centers the image */
-  
   padding: 70px;
 }
 
 .banner-content {
   text-align: center;
   display: flexbox;
-  align-items:start;
+  align-items: start;
 }
 
 .banner-content h1 {
@@ -207,7 +217,6 @@ main {
   gap: 10px;
 }
 
-
 .btn {
   font-size: 12px;
   background: transparent;
@@ -229,7 +238,6 @@ main {
   background-color: #DE94A7;
   color: #FAF4E5;
 }
-
 
 .btn::before {
   content: "";
@@ -272,6 +280,7 @@ main {
 .home-container {
   position: relative;
 }
+
 .overlap-image {
   position: absolute;
   bottom: 50%; /* Start from slightly lower */
@@ -296,32 +305,23 @@ main {
   }
 }
 
-
 /* ImageBanner.css */
-
 .image-banner {
   padding: 50px;
-  /* background-image: url(/public/images/bgforgrid.jpg); 
-    background-size: cover;
-  background-repeat: no-repeat; 
-  background-position: center; */
-  
   display: flex;
   justify-content: flex-end;
-  
 }
 
 .image-grid {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   margin-left: 25%;
-  
 }
 
 .image-item {
   margin: 0 10px;
   position: relative;
-  overflow:visible;
+  overflow: visible;
   transition: transform 0.3s ease-in-out;
   flex: 1;
 }
@@ -362,38 +362,33 @@ main {
   border-radius: 3px;
   cursor: pointer;
   margin-right: 5px;
-  
+
   position: absolute;
   bottom: 65%;
   left: 13%;
   transform: translateX(-50%);
   z-index: 10; /* Ensure the image appears above both banners */
   width: 20%;
-  
 }
 
 .banner-text {
-margin-top: 20px;
+  margin-top: 20px;
   height: 100px;
- 
   padding: 70px;
 }
 
 .banner-text-h1 {
-  text-align:center;
+  text-align: center;
   align-items: center;
   color: #a6647d;
   font-size: 3.4rem;
- 
 }
 
-
 .banner-p {
-  text-align:center;
+  text-align: center;
   align-items: center;
   color: #987773;
   font-size: 2rem;
- 
 }
 
 
