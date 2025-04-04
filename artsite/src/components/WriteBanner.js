@@ -1,12 +1,12 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, {  useRef } from 'react';
 import '../css/index.css';
 import { useNavigate} from 'react-router-dom';
 
 
 const WriteBanner= () => {
     const navigate = useNavigate();
-      const overlapTwoRef = useRef(null);
+      
   const navigateToWriteups = () => {
     navigate('/writeups');
   };
