@@ -5,9 +5,8 @@ import Portraits from '../components/artworks/Portraits';
 import Sketches from '../components/artworks/Sketches';
 import Everything from '../components/artworks/Everything';
 import Scenic from '../components/artworks/Scenic';
-
 function Artworks() {
-  const [ setArtworks] = useState([]);
+  const [artworks, setArtworks] = useState([]);
 
   useEffect(() => {
     axios.get('/api/artworks')
@@ -17,13 +16,9 @@ function Artworks() {
       .catch(error => {
         console.error('There was an error fetching the artworks!', error);
       });
-      
-       
-          
-          window.scrollTo(0, 0);
-      
-       
-  }, []);
+
+    window.scrollTo(0, 0);
+  }, []); // It's safe to leave setArtworks out
 
   return (
     <div className="Arts">

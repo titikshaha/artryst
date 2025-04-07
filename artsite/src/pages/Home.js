@@ -19,6 +19,7 @@ function Home() {
   };
 
   useEffect(() => {
+    const element = overlapTwoRef.current; // capture the current ref value
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -27,13 +28,13 @@ function Home() {
       });
     });
 
-    if (overlapTwoRef.current) {
-      observer.observe(overlapTwoRef.current);
+    if (element) {
+      observer.observe(element);
     }
 
     return () => {
-      if (overlapTwoRef.current) {
-        observer.unobserve(overlapTwoRef.current);
+      if (element) {
+        observer.unobserve(element);
       }
     };
   }, []);
