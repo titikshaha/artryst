@@ -6,7 +6,7 @@ import Sketches from '../components/artworks/Sketches';
 import Everything from '../components/artworks/Everything';
 import Scenic from '../components/artworks/Scenic';
 function Artworks() {
-  const [artworks, setArtworks] = useState([]);
+  const [setArtworks] = useState([]);
 
   useEffect(() => {
     axios.get('/api/artworks')
