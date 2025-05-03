@@ -16,6 +16,24 @@ const Writeups = () => {
       document: "/documents/washedaway.docx",
     },
     {
+      id: 7,
+      title: "My Castles",
+      coverArt: "/images/writeups/writeup3.jpg",
+      document: "/documents/castles.docx",
+    },
+    {
+      id: 8,
+      title: "sickness",
+      coverArt: "/images/writeups/writeup3.jpg",
+      document: "/documents/sickeness.docx",
+    },
+    {
+      id: 9,
+      title: "Sunsets",
+      coverArt: "/images/writeups/writeup3.jpg",
+      document: "/documents/sunsets.docx",
+    },
+    {
       id: 4,
       title: "Glitter on The Floor",
       coverArt: "/images/writeups/writeup4.jpg",
