@@ -6,7 +6,7 @@ const BannerLast = () => {
   return (
     <div className='container-last'>
     <div className="banner-last">
-        <h1 className='banner-last-h1'>art is limitless!</h1>            
+        <h1 className='banner-last-h1'>art is limitless!!!</h1>            
     </div>
     </div>
     
