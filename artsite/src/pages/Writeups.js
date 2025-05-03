@@ -25,7 +25,7 @@ const Writeups = () => {
       id: 8,
       title: "sickness",
       coverArt: "/images/writeups/writeup9.jpg",
-      document: "/documents/sickeness.docx",
+      document: "/documents/sick.docx",
     },
     {
       id: 9,
