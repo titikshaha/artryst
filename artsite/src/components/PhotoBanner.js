@@ -10,17 +10,26 @@ const PhotoBanner = () => {
      <div className="photo-grid">
        <div className="photo-item">
          <img src="/images/banner1.jpg" alt="um 1" />
-      
-         <img src="/images/banner2.jpg" alt="bum 2" />
         
+       </div>
+       <div className="photo-item">
+         <img src="/images/banner2.jpg" alt="ege 2" />
+        
+       </div>
+       <div className="photo-item">
+         <img src="/images/banner3.jpg" alt="pegro 3" />
        
-         <img src="/images/banner3.jpg" alt="gum 3" />
+       </div>
+       <div className="photo-item">
+         <img src="/images/banner4.png" alt="eg 4" />
        
-         <img src="/images/banner4.png" alt="pum 4" />
+       </div>
+       <div className="photo-item">
+         <img src="/images/banner5.jpg" alt="eg 5" />
        
-         <img src="/images/banner5.jpg" alt="chum 5" />
-       
-         <img src="/images/banner6.jpg" alt="kum 6" />
+       </div>
+       <div className="photo-item">
+         <img src="/images/banner6.jpg" alt="phowrto 6" />
        
        </div>
      </div>

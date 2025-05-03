@@ -11,9 +11,9 @@ function About() {
         <AboutBanner />
       </div>
       
-      {/* <div className="section">
+      <div className="section">
         <PhotoBanner />
-      </div> */}
+      </div>
 
       <div className="section two">
         <AboutBanner2 />
