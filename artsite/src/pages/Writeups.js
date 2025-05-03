@@ -16,6 +16,12 @@ const Writeups = () => {
       document: "/documents/washedaway.docx",
     },
     {
+      id: 9,
+      title: "Sunsets",
+      coverArt: "/images/writeups/writeup8.jpg",
+      document: "/documents/sunsets.docx",
+    },
+    {
       id: 7,
       title: "My Castles",
       coverArt: "/images/writeups/writeup7.jpg",
@@ -27,12 +33,7 @@ const Writeups = () => {
       coverArt: "/images/writeups/writeup9.jpg",
       document: "/documents/sick.docx",
     },
-    {
-      id: 9,
-      title: "Sunsets",
-      coverArt: "/images/writeups/writeup8.jpg",
-      document: "/documents/sunsets.docx",
-    },
+   
     {
       id: 4,
       title: "Glitter on The Floor",
