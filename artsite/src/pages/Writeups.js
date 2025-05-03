@@ -18,19 +18,19 @@ const Writeups = () => {
     {
       id: 7,
       title: "My Castles",
-      coverArt: "/images/writeups/writeup3.jpg",
+      coverArt: "/images/writeups/writeup7.jpg",
       document: "/documents/castles.docx",
     },
     {
       id: 8,
       title: "sickness",
-      coverArt: "/images/writeups/writeup3.jpg",
+      coverArt: "/images/writeups/writeup9.jpg",
       document: "/documents/sickeness.docx",
     },
     {
       id: 9,
       title: "Sunsets",
-      coverArt: "/images/writeups/writeup3.jpg",
+      coverArt: "/images/writeups/writeup8.jpg",
       document: "/documents/sunsets.docx",
     },
     {
