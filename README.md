@@ -136,5 +136,3 @@ Wraps the application manages routing, and includes global components like the h
 ## Acknowledgments
 - **React** for providing a robust framework for frontend development.
 - **You** for contributing to the growth of this project!
-
-# test from new pc
