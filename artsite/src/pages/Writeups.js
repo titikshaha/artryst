@@ -22,6 +22,12 @@ const Writeups = () => {
       document: "/documents/sunsets.docx",
     },
     {
+      id: 10,
+      title: "Timeless",
+      coverArt: "/images/writeups/writeup10.jpg",
+      document: "/documents/timeless.docx",
+    },
+    {
       id: 7,
       title: "My Castles",
       coverArt: "/images/writeups/writeup7.jpg",
