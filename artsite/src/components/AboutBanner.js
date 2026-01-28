@@ -7,7 +7,7 @@ const AboutBanner = () => {
     <div class="about-me-header">
       
   <div class="text-content">
-    <h1>between everything, anything</h1>
+    <h1>between everything, anything!!!</h1>
     <p> <br />A natural leader with a proactive mindset. <br /> <br />
     I'm an introspective creative, always seeking to explore the deeper layers of emotion and experience. With my ability to combine contrasts and personify abstract feelings, 
     I create vivid and impactful stories that resonate on a personal level. <br /><br/>
