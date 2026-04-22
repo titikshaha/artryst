@@ -29,7 +29,6 @@ function Home() {
   const quoteRef    = useScrollReveal();
   const masonryRef  = useScrollReveal();
   const writingsRef = useScrollReveal();
-  const closingRef  = useScrollReveal();
 
   return (
     <div className="home-container">
