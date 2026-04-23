@@ -92,7 +92,7 @@ function Home() {
           </div>
           {/* accent vertical banner */}
           <div className="home-masonry__cell home-masonry__cell--accent" onClick={() => navigate('/artworks')}>
-            <img src="/images/banner5.jpg" alt="Featured" />
+            <img src="/images/writeup3.jpg" alt="Featured" />
             <div className="home-masonry__label">Featured</div>
           </div>
         </div>
@@ -108,14 +108,14 @@ function Home() {
           <div className="home-writings-divider__line" />
         </div>
         <p className="home-writings-divider__sub">
-          stories, observations &amp; late-night thoughts
+          stories, observations &amp; everything in between
         </p>
       </div>
 
       {/* ── 4b. WRITINGS HORIZONTAL SCROLL ── */}
       <section className="home-writings">
         <header className="home-writings__header">
-          <h2 className="home-section-title">Recent Pieces</h2>
+          <h2 className="home-section-title">Write-Ups</h2>
           <button className="home-link-btn" onClick={() => navigate('/writeups')}>
             Read All →
           </button>
