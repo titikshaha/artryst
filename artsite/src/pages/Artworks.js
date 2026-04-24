@@ -11,32 +11,38 @@ function Artworks() {
 
   useEffect(() => {
     axios.get('/api/artworks')
-      .then(response => {
-        setArtworks(response.data);
-      })
-      .catch(error => {
-        console.error('There was an error fetching the artworks!', error);
-      });
-
+      .then(response => setArtworks(response.data))
+      .catch(error => console.error('Error fetching artworks:', error));
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="Arts">
-      <div className="section portrait">
-        <Portraits artworks={artworks} />
+      <div className="artworks-page-header">
+        <p className="artworks-eyebrow">a collection</p>
+        <h1 className="artworks-page-title">artworks</h1>
+        <div className="artworks-page-rule" />
       </div>
 
-      <div className="section sketches">
-        <Sketches artworks={artworks} />
+      <div className="section-wrap">
+        <div className="section portrait">
+          <Portraits artworks={artworks} />
+        </div>
+        <div className="section sketches">
+          <Sketches artworks={artworks} />
+        </div>
+        <div className="section everything">
+          <Everything artworks={artworks} />
+        </div>
+        <div className="section scenic">
+          <Scenic artworks={artworks} />
+        </div>
       </div>
 
-      <div className="section everything">
-        <Everything artworks={artworks} />
-      </div>
-
-      <div className="section scenic">
-        <Scenic artworks={artworks} />
+      <div className="artworks-footer-dots">
+        <span className="dot-muted" />
+        <span className="dot-accent" />
+        <span className="dot-muted" />
       </div>
     </div>
   );

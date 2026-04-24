@@ -124,78 +124,205 @@
   }
   
 
-  
-.artworks-container {
-  
-  overflow-y:visible;
+  /* ── page shell ─────────────────────────────────────── */
+.Arts {
  
-  padding: 10px;
- }
-
- .artworks-container h1{
-  font-size: 4rem;
-  color: #614984;
-  text-align: center;
-  padding: 10px;
- }
- 
-.artworks-container{
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background-image: url(/public/images/ppp.jpg);
-  background-repeat: no-repeat;
-  background-size: cover ;
-  box-shadow: 0 2px 4px rgba(25, 8, 29, 0.6);
-  border-radius: 8px;
+  min-height: 100vh;
+  padding-bottom: 80px;
 }
 
-.artworks-container {
+/* ── page header ────────────────────────────────────── */
+.artworks-page-header {
+  text-align: center;
+  padding: 72px 40px 48px;
+  border-bottom: 0.5px solid #D4C5A9;
+}
+
+.artworks-eyebrow {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #9E8BAF;
+  letter-spacing: 0.18em;
+  margin-bottom: 16px;
+}
+
+.artworks-page-title {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #4A3366;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.artworks-page-rule {
+  width: 40px;
+  height: 0.5px;
+  background: #C9B8A0;
+  margin: 20px auto 0;
+}
+
+/* ── section wrapper ────────────────────────────────── */
+.section-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.section {
+  padding: 72px 0 0;
+}
+
+/* ── section header ─────────────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
   margin-bottom: 40px;
 }
 
-.artworks-container h2 {
-  font-size: 40px;
-  margin-top: 50px;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #333;
-  padding-bottom: 5px;
+.section-number {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #C9B8A0;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
 }
 
+.section-title {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: #4A3366;
+  line-height: 1.2;
+}
+
+.section-divider {
+  flex: 1;
+  height: 0.5px;
+  background: #D4C5A9;
+}
+
+/* ── grids ──────────────────────────────────────────── */
 .artwork-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
-  width: 100%;
+  gap: 2px;
 }
 
-.artwork-item {
+.artwork-grid.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.artwork-grid.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.artwork-grid.grid-featured {
+  grid-template-columns: 1.6fr 1fr;
+}
+
+/* ── artwork card ───────────────────────────────────── */
+.artwork-card {
   background: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: calc(100% - 20px);
-  box-sizing: border-box;
-  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.artwork-item img {
+.artwork-card-img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  position: relative;
 }
 
-.artwork-item h3 {
-  font-size: 18px;
-  margin-top: 10px;
+/* Let the left featured card's image naturally stretch to fill the row height */
+.grid-featured > .artwork-card > .artwork-card-img {
+  aspect-ratio: auto;
+  flex: 1;
+  min-height: 0;
 }
 
-.artwork-item p {
-  font-size: 14px;
-  color: #666;
-  margin-top: 5px;
+.artwork-card-img.landscape { aspect-ratio: 4 / 3; }
+.artwork-card-img.square    { aspect-ratio: 1 / 1; }
+.artwork-card-img.panoramic { aspect-ratio: 16 / 7; }
+
+.artwork-card-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
+.artwork-card:hover .artwork-card-img img {
+  transform: scale(1.03);
+}
+
+.artwork-card-caption {
+  padding: 14px 16px 16px;
+  background: #fff;
+  border-top: 0.5px solid #EDE4D4;
+}
+
+.artwork-card-name {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #4A3366;
+  font-weight: 400;
+}
+
+.artwork-card-medium {
+  font-size: 0.75rem;
+  color: #C9B8A0;
+  letter-spacing: 0.08em;
+  margin-top: 3px;
+  font-family: 'Georgia', serif;
+}
+
+/* ── footer dots ────────────────────────────────────── */
+.artworks-footer-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 56px 0 0;
+}
+
+.artworks-footer-dots span {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+}
+
+.artworks-footer-dots .dot-muted  { background: #C9B8A0; opacity: 0.6; }
+.artworks-footer-dots .dot-accent { background: #8A6FA0; opacity: 0.5; }
+
+/* ── responsive ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .artwork-grid.grid-4    { grid-template-columns: repeat(2, 1fr); }
+  .artwork-grid.grid-featured { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .artwork-grid.grid-3,
+  .artwork-grid.grid-4    { grid-template-columns: 1fr 1fr; }
+  .artworks-page-title    { font-size: 2rem; }
+  .section-title          { font-size: 1.3rem; }
+  .section-wrap           { padding: 0 16px; }
+}
 .writeup-page {
   padding: 90px;
   background-color: #904778cf;
