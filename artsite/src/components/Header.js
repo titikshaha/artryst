@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 function Header() {
   const location = useLocation();
   const activeSection = location.pathname.substring(1);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -15,11 +29,11 @@ function Header() {
   };
 
   return (
-    <header>
+    <header className={isScrolled ? 'scrolled' : ''}>
       <div className="header-content">
         <div className="logo">
           <Link to="/" onClick={closeMenu}>
-            <img src="/images/T2.png" alt="Logo" />
+            <img src="/images/art-trans.png" alt="Logo" />
           </Link>
         </div>
         

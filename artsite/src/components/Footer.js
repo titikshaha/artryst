@@ -12,8 +12,7 @@ const Footer = () => {
           <img src="images/T2.png" alt="artryst logo" />
         </div>
 
-        {/* Tagline */}
-        <p className="footer-tagline">artistry knows no bounds</p>
+      
 
         {/* Social icons */}
         <div className="footer-social">

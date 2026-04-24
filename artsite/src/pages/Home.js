@@ -67,12 +67,7 @@ function Home() {
 
       {/* ── 3. MASONRY ARTWORK GRID ── */}
       <section className="home-masonry reveal-target" ref={masonryRef}>
-        <header className="home-masonry__header">
-          <h2 className="home-section-title">Artworks</h2>
-          <button className="home-link-btn" onClick={() => navigate('/artworks')}>
-            View All →
-          </button>
-        </header>
+        
         <div className="home-masonry__grid">
           {/* large left cell */}
           <div className="home-masonry__cell home-masonry__cell--large" onClick={() => navigate('/artworks')}>
@@ -114,12 +109,7 @@ function Home() {
 
       {/* ── 4b. WRITINGS HORIZONTAL SCROLL ── */}
       <section className="home-writings">
-        <header className="home-writings__header">
-          <h2 className="home-section-title">Write-Ups</h2>
-          <button className="home-link-btn" onClick={() => navigate('/writeups')}>
-            Read All →
-          </button>
-        </header>
+        
         <div className="home-writings__strip">
           {[
             { img: '/images/writeups/writeup3.jpg',  title: 'Washed Away',          desc: 'A short story of letting go.' },
