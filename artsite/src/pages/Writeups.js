@@ -3,12 +3,10 @@ import WriteupCard from "../components/WriteupCard";
 import WriteupDetail from "../components/WriteupDetail";
 import '../css/index2.css';
 
-
 const Writeups = () => {
   const [selectedWriteup, setSelectedWriteup] = useState(null);
 
   const writeups = [
-    
     {
       id: 3,
       title: "Washed Away",
@@ -35,11 +33,10 @@ const Writeups = () => {
     },
     {
       id: 8,
-      title: "sickness",
+      title: "Sickness",
       coverArt: "/images/writeups/writeup9.jpg",
       document: "/documents/sick.docx",
     },
-   
     {
       id: 4,
       title: "Glitter on The Floor",
@@ -81,25 +78,39 @@ const Writeups = () => {
   };
 
   useEffect(() => {
-    
     window.scrollTo(0, 0);
-
-  }, []);
+  }, [selectedWriteup]);
 
   return (
-    <div className="writeups-page">
+    <div className="Arts">
       {selectedWriteup ? (
         <WriteupDetail writeup={selectedWriteup} onClose={handleCloseDetail} />
       ) : (
-        <div className="writeup-list">
-          {writeups.map((writeup) => (
-            <WriteupCard
-              key={writeup.id}
-              writeup={writeup}
-              onSelect={handleSelectWriteup}
-            />
-          ))}
-        </div>
+        <>
+          <div className="artworks-page-header">
+            <p className="artworks-eyebrow">stories & thoughts</p>
+            <h1 className="artworks-page-title">write-ups</h1>
+            <div className="artworks-page-rule" />
+          </div>
+
+          <div className="section-wrap" style={{ paddingTop: '60px' }}>
+            <div className="writeup-editorial-grid">
+              {writeups.map((writeup) => (
+                <WriteupCard
+                  key={writeup.id}
+                  writeup={writeup}
+                  onSelect={handleSelectWriteup}
+                />
+              ))}
+            </div>
+          </div>
+          
+          <div className="artworks-footer-dots">
+            <span className="dot-muted" />
+            <span className="dot-accent" />
+            <span className="dot-muted" />
+          </div>
+        </>
       )}
     </div>
   );

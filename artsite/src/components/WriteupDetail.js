@@ -10,7 +10,6 @@ const WriteupDetail = ({ writeup, onClose }) => {
       try {
         const response = await fetch(writeup.document);
         const arrayBuffer = await response.arrayBuffer();
-
         const result = await mammoth.extractRawText({ arrayBuffer });
         setDocContent(result.value);
       } catch (error) {
@@ -18,60 +17,38 @@ const WriteupDetail = ({ writeup, onClose }) => {
         setDocContent("Failed to load content.");
       }
     };
-    window.scrollTo(0, 0);
+    
     fetchDocText();
+    window.scrollTo(0, 0);
   }, [writeup.document]);
 
   return (
-    <div
-    style={{
-      backgroundImage: `url(${writeup.coverArt})`, // Dynamically set the cover art as the background
-      backgroundSize: "cover" ,
-      backgroundPosition: "center",
-      backgroundAttachment: "fixed",
-      minHeight: "100vh", // Full-page height
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      padding: "20px",
-    }}
-  >
-    <div
-      className="writeup-detail"
-      style={{
-        backgroundColor: "rgba(255, 255, 255, 0.88)", // Semi-transparent white background
-        padding: "20px",
-        borderRadius: "8px",
-        maxWidth: "800px",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-      }}
-    >
-      <h1>{writeup.title}</h1>
-      <div className="writeup-content">
-        <p style={{ whiteSpace: "pre-wrap", lineHeight: "1.6", color: "#333" }}>
-          {docContent}
-        </p>
-        <button onClick={onClose} style={buttonStyle}>
-          Back
+    <div className="writeup-reader-view">
+      <div className="writeup-reader-nav">
+        <button className="writeup-back-btn" onClick={onClose}>
+          <span className="back-arrow">←</span> back to collection
         </button>
       </div>
-    </div>
-  </div>
-);
-};
-const buttonStyle = {
-  marginTop: "20px",
-  padding: "10px 20px",
-  backgroundColor: "#2c3e50",
-  color: "#fff",
-  border: "none",
-  borderRadius: "4px",
-  cursor: "pointer",
-  transition: "background-color 0.3s ease",
-};
 
-buttonStyle[':hover'] = {
-  backgroundColor: "#34495e",
+      <div className="writeup-reader-hero">
+        <div className="writeup-hero-img-container">
+          <img src={writeup.coverArt} alt={writeup.title} className="writeup-hero-img" />
+          <div className="writeup-hero-gradient"></div>
+        </div>
+        <div className="writeup-hero-header">
+          <p className="writeup-hero-eyebrow">original piece</p>
+          <h1 className="writeup-hero-title">{writeup.title}</h1>
+          <div className="writeup-hero-rule" />
+        </div>
+      </div>
+
+      <div className="writeup-reader-body">
+        <div className="writeup-reader-content">
+          <p>{docContent || "Loading piece..."}</p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default WriteupDetail;

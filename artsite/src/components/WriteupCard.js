@@ -3,19 +3,16 @@ import mammoth from "mammoth";
 import "../css/index2.css";
 
 const WriteupCard = ({ writeup, onSelect }) => {
-  const [docText, setDocText] = useState(""); // State to hold extracted text
+  const [docText, setDocText] = useState("");
 
   useEffect(() => {
     const fetchDocText = async () => {
       try {
         if (writeup.document.endsWith(".docx")) {
-          // Fetch the .docx file as an ArrayBuffer
           const response = await fetch(writeup.document);
           const arrayBuffer = await response.arrayBuffer();
-
-          // Extract raw text from the .docx file
           const result = await mammoth.extractRawText({ arrayBuffer });
-          setDocText(result.value); // `result.value` contains the extracted text
+          setDocText(result.value);
         }
       } catch (error) {
         console.error("Error loading Word document:", error);
@@ -27,15 +24,18 @@ const WriteupCard = ({ writeup, onSelect }) => {
   }, [writeup.document]);
 
   return (
-    <div className="writeup-card" onClick={() => onSelect(writeup)}>
-      <div className="writeup-card-left">
+    <div className="writeup-editorial-card" onClick={() => onSelect(writeup)}>
+      <div className="writeup-editorial-img">
         <img src={writeup.coverArt} alt={`${writeup.title} Cover Art`} />
       </div>
-      <div className="writeup-card-right">
-        <h2>{writeup.title}</h2>
-        <p>{docText ? docText.slice(0, 200) + "..." : "Loading content..."}</p>
-        <button className="read-more" onClick={() => onSelect(writeup)}>
-          Read More
+      <div className="writeup-editorial-content">
+        <h2 className="writeup-editorial-title">{writeup.title}</h2>
+        <div className="writeup-editorial-rule" />
+        <p className="writeup-editorial-excerpt">
+          {docText ? docText.slice(0, 60) + "..." : "Loading content..."}
+        </p>
+        <button className="writeup-editorial-btn" onClick={(e) => { e.stopPropagation(); onSelect(writeup); }}>
+          Read Piece <span>→</span>
         </button>
       </div>
     </div>
