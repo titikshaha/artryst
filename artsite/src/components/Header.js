@@ -49,7 +49,7 @@ function Header() {
             <li><Link to="/artworks" className={activeSection === 'artworks' ? 'active' : ''} onClick={closeMenu}>Artworks</Link></li>
             <li><Link to="/writeups" className={activeSection === 'writeups' ? 'active' : ''} onClick={closeMenu}>Write-Ups</Link></li>
             <li><Link to="/about" className={activeSection === 'about' ? 'active' : ''} onClick={closeMenu}>About Me</Link></li>
-            <li><Link to="/submissions" className={activeSection === 'submissions' ? 'active' : ''} onClick={closeMenu}>Submissions</Link></li>
+            {/* <li><Link to="/submissions" className={activeSection === 'submissions' ? 'active' : ''} onClick={closeMenu}>Submissions</Link></li> */}
           </ul>
         </nav>
       </div>
