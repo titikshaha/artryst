@@ -21,7 +21,7 @@ artryst is a personal  website designed to showcase artworks and writeups. It fe
 
 ### 3. **Responsive Design**
 - Fully responsive layout for seamless usage across devices.
-- Adaptive styles for navigation, banners, and content grids.
+- Adaptive styles for navigation, banners and content grids.
 
 ### 4. **Global State Management**
 - Centralized search state using React Context API for efficient state sharing across components.
